@@ -1,0 +1,63 @@
+<h2>Input data</h2>
+
+<div>
+    <form #countryForm ="ngForm" (ngSubmit)="addCountry(countryForm)">
+        <input type = "hidden" name = "_id" #_id = "ngModel"[(ngModel)]="selectedCountry._id" > 
+        <div>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="selectedCountry.name" 
+            placeholder="Ingrese el nombre del país">
+        </div>
+
+        <div>
+            <input type="text" name="capital" #capital="ngModel" [(ngModel)]="selectedCountry.capital" 
+            placeholder="Ingrese la capital del país">
+        </div>
+
+        <div>
+            <input type="text" name="n_habitantes" #n_habitantes="ngModel" [(ngModel)]="selectedCountry.n_habitantes" 
+            placeholder="Ingrese el número de habitantes">
+        </div>
+
+        <div>
+            <button>Enviar</button>
+            <button (click)="resetForm(countryForm)">Borrar</button>
+         </div>
+     </form>
+<div>
+
+
+
+
+
+<h4>TABLE PRIMENG</h4>
+
+
+
+
+<p-table [value]="countries" styleClass="p-datatable-gridlines">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 5%" >icont</th>
+            <th style="width: 25%" >Nombre</th>
+            <th style="width: 20%" >Capital</th>
+            <th style="width: 20%" >Número de Habitantes</th>
+            <th style="width: 5%" >Ajustes</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-i = "rowIndex" let-country>
+        <tr>
+            <td>{{i +1}}</td>
+            <td>{{country.name}}</td>
+            <td>{{country.capital}}</td>
+            <td>{{country.n_habitantes}}</td>
+            <td><button pButton type= "button" icon ="pi pi-user-edit" (click)="editCountry(country)">
+            </button><button pButton type= "button" icon ="pi pi-trash" (click)="deleteCountry(country)"></button></td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <span class = "p-buttonset">
+            <button pButton pRipple icon = "pi pi-check" class = "p-button-rounded p-button-success p-button-text" (click)="save()"></button>
+            <button pButton pRipple icon = "pi pi-times" class = "p-button-rounded p-button-danger p-button-text" (click)="delete()"></button>
+        </span>
+    </ng-template>
+</p-table>
