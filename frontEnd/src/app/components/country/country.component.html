@@ -1,27 +1,33 @@
-<h2>Input data</h2>
+<h1>LABORATORIO 4 - MEAN CRUD</h1>
 
 <div>
-    <form #countryForm ="ngForm" (ngSubmit)="addCountry(countryForm)">
+    <form style = 'width:265px' #countryForm ="ngForm" (ngSubmit)="addCountry(countryForm)">
+        
+        <h2>INGRESO DE DATOS</h2>
+
         <input type = "hidden" name = "_id" #_id = "ngModel"[(ngModel)]="selectedCountry._id" > 
         <div>
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="selectedCountry.name" 
+            <input style = 'width:240px' type="text" name="name" #name="ngModel" [(ngModel)]="selectedCountry.name" 
             placeholder="Ingrese el nombre del país">
         </div>
 
         <div>
-            <input type="text" name="capital" #capital="ngModel" [(ngModel)]="selectedCountry.capital" 
+            <input style = 'width:240px' type="text" name="capital" #capital="ngModel" [(ngModel)]="selectedCountry.capital" 
             placeholder="Ingrese la capital del país">
         </div>
 
         <div>
-            <input type="text" name="n_habitantes" #n_habitantes="ngModel" [(ngModel)]="selectedCountry.n_habitantes" 
+            <input style = 'width:240px' type="text" name="n_habitantes" #n_habitantes="ngModel" [(ngModel)]="selectedCountry.n_habitantes" 
             placeholder="Ingrese el número de habitantes">
         </div>
 
         <div>
             <button>Enviar</button>
             <button (click)="resetForm(countryForm)">Borrar</button>
-         </div>
+        </div>
+
+        <h4></h4>
+
      </form>
 <div>
 
@@ -29,7 +35,7 @@
 
 
 
-<h4>TABLE PRIMENG</h4>
+<h5>PAÍSES</h5>
 
 
 
@@ -37,7 +43,7 @@
 <p-table [value]="countries" styleClass="p-datatable-gridlines">
     <ng-template pTemplate="header">
         <tr>
-            <th style="width: 5%" >icont</th>
+            <th style="width: 5%" >ID</th>
             <th style="width: 25%" >Nombre</th>
             <th style="width: 20%" >Capital</th>
             <th style="width: 20%" >Número de Habitantes</th>
